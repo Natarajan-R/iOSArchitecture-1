@@ -13,6 +13,11 @@
 		3E351F061CCCECD300D1CA5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E351F051CCCECD300D1CA5B /* Assets.xcassets */; };
 		3E351F091CCCECD300D1CA5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E351F071CCCECD300D1CA5B /* LaunchScreen.storyboard */; };
 		3E351F141CCCECD300D1CA5B /* iOSArchitectureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E351F131CCCECD300D1CA5B /* iOSArchitectureTests.swift */; };
+		3E351F251CCCFC2800D1CA5B /* MVPTodoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E351F231CCCFC2800D1CA5B /* MVPTodoListController.swift */; };
+		3E351F271CCCFC6400D1CA5B /* MVPTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E351F261CCCFC6400D1CA5B /* MVPTodo.swift */; };
+		3E351F291CCCFC7400D1CA5B /* MVPTodoListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E351F281CCCFC7400D1CA5B /* MVPTodoListPresenter.swift */; };
+		3E351F2F1CCDA49200D1CA5B /* Injectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E351F2E1CCDA49200D1CA5B /* Injectable.swift */; };
+		914AD2D3ABE9814314DCAFE6 /* SegueHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914AD9B68880CA6A80C110A4 /* SegueHandlerType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +41,11 @@
 		3E351F0F1CCCECD300D1CA5B /* iOSArchitectureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSArchitectureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E351F131CCCECD300D1CA5B /* iOSArchitectureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSArchitectureTests.swift; sourceTree = "<group>"; };
 		3E351F151CCCECD300D1CA5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E351F231CCCFC2800D1CA5B /* MVPTodoListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVPTodoListController.swift; sourceTree = "<group>"; };
+		3E351F261CCCFC6400D1CA5B /* MVPTodo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVPTodo.swift; sourceTree = "<group>"; };
+		3E351F281CCCFC7400D1CA5B /* MVPTodoListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVPTodoListPresenter.swift; sourceTree = "<group>"; };
+		3E351F2E1CCDA49200D1CA5B /* Injectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Injectable.swift; sourceTree = "<group>"; };
+		914AD9B68880CA6A80C110A4 /* SegueHandlerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandlerType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +69,7 @@
 		3E351EF21CCCECD300D1CA5B = {
 			isa = PBXGroup;
 			children = (
+				3E351F1E1CCCFB6C00D1CA5B /* MVP */,
 				3E351EFD1CCCECD300D1CA5B /* iOSArchitecture */,
 				3E351F121CCCECD300D1CA5B /* iOSArchitectureTests */,
 				3E351EFC1CCCECD300D1CA5B /* Products */,
@@ -83,6 +94,8 @@
 				3E351F051CCCECD300D1CA5B /* Assets.xcassets */,
 				3E351F071CCCECD300D1CA5B /* LaunchScreen.storyboard */,
 				3E351F0A1CCCECD300D1CA5B /* Info.plist */,
+				3E351F2E1CCDA49200D1CA5B /* Injectable.swift */,
+				914AD9B68880CA6A80C110A4 /* SegueHandlerType.swift */,
 			);
 			path = iOSArchitecture;
 			sourceTree = "<group>";
@@ -94,6 +107,40 @@
 				3E351F151CCCECD300D1CA5B /* Info.plist */,
 			);
 			path = iOSArchitectureTests;
+			sourceTree = "<group>";
+		};
+		3E351F1E1CCCFB6C00D1CA5B /* MVP */ = {
+			isa = PBXGroup;
+			children = (
+				3E351F211CCCFC2800D1CA5B /* Model */,
+				3E351F221CCCFC2800D1CA5B /* PassiveView */,
+				3E351F241CCCFC2800D1CA5B /* Presenter */,
+			);
+			path = MVP;
+			sourceTree = "<group>";
+		};
+		3E351F211CCCFC2800D1CA5B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3E351F261CCCFC6400D1CA5B /* MVPTodo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3E351F221CCCFC2800D1CA5B /* PassiveView */ = {
+			isa = PBXGroup;
+			children = (
+				3E351F231CCCFC2800D1CA5B /* MVPTodoListController.swift */,
+			);
+			path = PassiveView;
+			sourceTree = "<group>";
+		};
+		3E351F241CCCFC2800D1CA5B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				3E351F281CCCFC7400D1CA5B /* MVPTodoListPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,7 +245,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E351F011CCCECD300D1CA5B /* ViewController.swift in Sources */,
+				3E351F251CCCFC2800D1CA5B /* MVPTodoListController.swift in Sources */,
 				3E351EFF1CCCECD300D1CA5B /* AppDelegate.swift in Sources */,
+				3E351F291CCCFC7400D1CA5B /* MVPTodoListPresenter.swift in Sources */,
+				3E351F2F1CCDA49200D1CA5B /* Injectable.swift in Sources */,
+				3E351F271CCCFC6400D1CA5B /* MVPTodo.swift in Sources */,
+				914AD2D3ABE9814314DCAFE6 /* SegueHandlerType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +440,7 @@
 				3E351F1A1CCCECD300D1CA5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3E351F1B1CCCECD300D1CA5B /* Build configuration list for PBXNativeTarget "iOSArchitectureTests" */ = {
 			isa = XCConfigurationList;
@@ -396,6 +449,7 @@
 				3E351F1D1CCCECD300D1CA5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
