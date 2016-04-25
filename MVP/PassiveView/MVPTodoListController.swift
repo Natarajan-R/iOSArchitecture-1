@@ -13,7 +13,7 @@ protocol MVPTodoListView: class {
 }
 
 private extension Selector {
-//    static let tapOnAddNewTodoBtn = #selector(MVPTodoListViewController.tapOnAddNewTodoBtn(button: UIButton))
+    static let tapOnAddNewTodoBtn = #selector(MVPTodoListViewController.tapOnAddNewTodoBtn(_:))
 }
 
 class MVPTodoListViewController: UIViewController {
@@ -52,7 +52,7 @@ class MVPTodoListViewController: UIViewController {
     func configureViews() {
 
         let rightBarButtonItem
-        = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: Selector("tapOnAddNewTodoBtn:"))
+        = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: .tapOnAddNewTodoBtn)
 
         self.navigationItem.rightBarButtonItem = rightBarButtonItem
     }

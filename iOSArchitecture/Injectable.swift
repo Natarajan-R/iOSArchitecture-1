@@ -9,7 +9,7 @@
 import Foundation
 
 protocol Injectable {
-    typealias T
+    associatedtype T
 
     func inject(dependencies: T)
 
