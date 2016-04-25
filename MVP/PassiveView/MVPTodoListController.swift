@@ -19,7 +19,6 @@ private extension Selector {
 class MVPTodoListViewController: UIViewController {
     @IBOutlet weak var tableview: UITableView!
 
-//    private var todoList:  [MVPTodo]!
     private var presenter: MVPTodoListPresentable!
 
     override func viewDidLoad() {
@@ -62,7 +61,6 @@ class MVPTodoListViewController: UIViewController {
 extension MVPTodoListViewController: MVPTodoListView {
     func showTodoList() {
 
-//        self.todoList = todoList
         self.tableview.dataSource = self
         self.tableview.reloadData()
     }
@@ -76,7 +74,6 @@ extension MVPTodoListViewController: UITableViewDataSource {
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-//        return self.todoList.count
         return self.presenter.countTodoList()
     }
 
@@ -85,7 +82,6 @@ extension MVPTodoListViewController: UITableViewDataSource {
         let cellIdentifer = CellIdentifier.TodoCell
 
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifer.rawValue)!
-//        cell.textLabel?.text = self.todoList[indexPath.row].timeStamp.description
         cell.textLabel?.text = self.presenter.todoItemTitleByRow(indexPath.row)
 
         return cell
