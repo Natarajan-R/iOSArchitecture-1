@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MVPTodoListView: class {
-    func showTodoList(todoList: [MVPTodo])
+    func showTodoList()
 }
 
 private extension Selector {
@@ -19,7 +19,7 @@ private extension Selector {
 class MVPTodoListViewController: UIViewController {
     @IBOutlet weak var tableview: UITableView!
 
-    private var todoList:  [MVPTodo]!
+//    private var todoList:  [MVPTodo]!
     private var presenter: MVPTodoListPresentable!
 
     override func viewDidLoad() {
@@ -28,7 +28,7 @@ class MVPTodoListViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
 
         assertDependencies()
-        
+
         configureViews()
     }
 
@@ -60,9 +60,9 @@ class MVPTodoListViewController: UIViewController {
 }
 
 extension MVPTodoListViewController: MVPTodoListView {
-    func showTodoList(todoList: [MVPTodo]) {
+    func showTodoList() {
 
-        self.todoList = todoList
+//        self.todoList = todoList
         self.tableview.dataSource = self
         self.tableview.reloadData()
     }
@@ -76,7 +76,8 @@ extension MVPTodoListViewController: UITableViewDataSource {
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return self.todoList.count
+//        return self.todoList.count
+        return self.presenter.countTodoList()
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -84,10 +85,10 @@ extension MVPTodoListViewController: UITableViewDataSource {
         let cellIdentifer = CellIdentifier.TodoCell
 
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifer.rawValue)!
-        cell.textLabel?.text = self.todoList[indexPath.row].timeStamp.description
+//        cell.textLabel?.text = self.todoList[indexPath.row].timeStamp.description
+        cell.textLabel?.text = self.presenter.todoItemTitleByRow(indexPath.row)
 
         return cell
-
     }
 }
 
@@ -95,10 +96,12 @@ extension MVPTodoListViewController: Injectable {
     typealias T = MVPTodoListPresentable
 
     func inject(dependencies: T) {
+
         self.presenter = dependencies
     }
 
     func assertDependencies() {
+
         assert(self.presenter != nil)
     }
 }

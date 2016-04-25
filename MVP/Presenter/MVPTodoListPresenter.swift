@@ -13,7 +13,11 @@ protocol MVPTodoListPresentable {
     init(view: MVPTodoListView, todoList: [MVPTodo])
 
     func showTodoList()
-    func addNewTodoByTimeStamp(timeStamp:NSDate)
+
+    func addNewTodoByTimeStamp(timeStamp: NSDate)
+
+    func countTodoList() -> Int
+    func todoItemTitleByRow(row: Int) -> String
 }
 
 class MVPTodoListPresenter: MVPTodoListPresentable {
@@ -25,16 +29,29 @@ class MVPTodoListPresenter: MVPTodoListPresentable {
         self.view = view
         self.todoList = todoList
     }
-    
+
     func showTodoList() {
-        self.view.showTodoList(self.todoList)
+
+        self.view.showTodoList()
     }
 
-    func addNewTodoByTimeStamp(timeStamp:NSDate) {
-        let todo = MVPTodo(timeStamp:timeStamp)
+    func addNewTodoByTimeStamp(timeStamp: NSDate) {
+
+        let todo = MVPTodo(timeStamp: timeStamp)
 
         self.todoList.append(todo)
-        self.view.showTodoList(self.todoList)
+        self.view.showTodoList()
     }
+
+    func countTodoList() -> Int {
+
+        return self.todoList.count
+    }
+
+    func todoItemTitleByRow(row: Int) -> String {
+
+        return self.todoList[row].timeStamp.description
+    }
+
 
 }
