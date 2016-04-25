@@ -17,6 +17,10 @@
 		3E351F271CCCFC6400D1CA5B /* MVPTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E351F261CCCFC6400D1CA5B /* MVPTodo.swift */; };
 		3E351F291CCCFC7400D1CA5B /* MVPTodoListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E351F281CCCFC7400D1CA5B /* MVPTodoListPresenter.swift */; };
 		3E351F2F1CCDA49200D1CA5B /* Injectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E351F2E1CCDA49200D1CA5B /* Injectable.swift */; };
+		3EC17C7B1CCE1B4500ABB054 /* MVVMTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC17C7A1CCE1B4500ABB054 /* MVVMTodo.swift */; };
+		3EC17C7D1CCE1B7900ABB054 /* MVVMTodoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC17C7C1CCE1B7900ABB054 /* MVVMTodoListView.swift */; };
+		3EC17C7F1CCE1B8700ABB054 /* MVVMTodoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC17C7E1CCE1B8700ABB054 /* MVVMTodoListViewModel.swift */; };
+		3EC17C811CCE2B6200ABB054 /* MVVMTodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC17C801CCE2B6200ABB054 /* MVVMTodoListViewController.swift */; };
 		914AD2D3ABE9814314DCAFE6 /* SegueHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914AD9B68880CA6A80C110A4 /* SegueHandlerType.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +49,10 @@
 		3E351F261CCCFC6400D1CA5B /* MVPTodo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVPTodo.swift; sourceTree = "<group>"; };
 		3E351F281CCCFC7400D1CA5B /* MVPTodoListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVPTodoListPresenter.swift; sourceTree = "<group>"; };
 		3E351F2E1CCDA49200D1CA5B /* Injectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Injectable.swift; sourceTree = "<group>"; };
+		3EC17C7A1CCE1B4500ABB054 /* MVVMTodo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVVMTodo.swift; sourceTree = "<group>"; };
+		3EC17C7C1CCE1B7900ABB054 /* MVVMTodoListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVVMTodoListView.swift; sourceTree = "<group>"; };
+		3EC17C7E1CCE1B8700ABB054 /* MVVMTodoListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVVMTodoListViewModel.swift; sourceTree = "<group>"; };
+		3EC17C801CCE2B6200ABB054 /* MVVMTodoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVVMTodoListViewController.swift; sourceTree = "<group>"; };
 		914AD9B68880CA6A80C110A4 /* SegueHandlerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandlerType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,6 +77,7 @@
 		3E351EF21CCCECD300D1CA5B = {
 			isa = PBXGroup;
 			children = (
+				3EC17C761CCE1B3700ABB054 /* MVVMWithoutBinding */,
 				3E351F1E1CCCFB6C00D1CA5B /* MVP */,
 				3E351EFD1CCCECD300D1CA5B /* iOSArchitecture */,
 				3E351F121CCCECD300D1CA5B /* iOSArchitectureTests */,
@@ -141,6 +150,41 @@
 				3E351F281CCCFC7400D1CA5B /* MVPTodoListPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		3EC17C761CCE1B3700ABB054 /* MVVMWithoutBinding */ = {
+			isa = PBXGroup;
+			children = (
+				3EC17C771CCE1B3700ABB054 /* Model */,
+				3EC17C781CCE1B3700ABB054 /* View */,
+				3EC17C791CCE1B3700ABB054 /* ViewModel */,
+			);
+			path = MVVMWithoutBinding;
+			sourceTree = "<group>";
+		};
+		3EC17C771CCE1B3700ABB054 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3EC17C7A1CCE1B4500ABB054 /* MVVMTodo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3EC17C781CCE1B3700ABB054 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3EC17C7C1CCE1B7900ABB054 /* MVVMTodoListView.swift */,
+				3EC17C801CCE2B6200ABB054 /* MVVMTodoListViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3EC17C791CCE1B3700ABB054 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3EC17C7E1CCE1B8700ABB054 /* MVVMTodoListViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +293,10 @@
 				3E351EFF1CCCECD300D1CA5B /* AppDelegate.swift in Sources */,
 				3E351F291CCCFC7400D1CA5B /* MVPTodoListPresenter.swift in Sources */,
 				3E351F2F1CCDA49200D1CA5B /* Injectable.swift in Sources */,
+				3EC17C7B1CCE1B4500ABB054 /* MVVMTodo.swift in Sources */,
+				3EC17C7F1CCE1B8700ABB054 /* MVVMTodoListViewModel.swift in Sources */,
+				3EC17C811CCE2B6200ABB054 /* MVVMTodoListViewController.swift in Sources */,
+				3EC17C7D1CCE1B7900ABB054 /* MVVMTodoListView.swift in Sources */,
 				3E351F271CCCFC6400D1CA5B /* MVPTodo.swift in Sources */,
 				914AD2D3ABE9814314DCAFE6 /* SegueHandlerType.swift in Sources */,
 			);

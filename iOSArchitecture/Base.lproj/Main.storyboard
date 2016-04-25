@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NWm-DL-nSO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NWm-DL-nSO">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -82,6 +82,9 @@
                                                 <constraint firstItem="6xi-FO-q4g" firstAttribute="trailing" secondItem="eH4-0r-el3" secondAttribute="trailingMargin" id="jaJ-1G-npM"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="EgG-pM-V5P" kind="show" identifier="MVVMWithoutBinding" id="opm-s3-bvy"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="bXp-fg-i9E">
                                         <rect key="frame" x="0.0" y="196" width="600" height="44"/>
@@ -220,6 +223,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1z4-Nb-btl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="284" y="296"/>
+        </scene>
+        <!--MVVMWIthoutBinding-->
+        <scene sceneID="d0Z-iK-feS">
+            <objects>
+                <viewController title="MVVMWIthoutBinding" id="EgG-pM-V5P" customClass="MVVMTodoListViewController" customModule="iOSArchitecture" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sgV-iO-s7H"/>
+                        <viewControllerLayoutGuide type="bottom" id="ncf-0Z-qaB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zTE-Z2-zW5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AsO-9M-ouh">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TodoCell" id="hJu-71-A8Z">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hJu-71-A8Z" id="ZeL-6M-l6d">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AsO-9M-ouh" firstAttribute="leading" secondItem="zTE-Z2-zW5" secondAttribute="leadingMargin" constant="-20" id="3LL-3G-1xb"/>
+                            <constraint firstItem="ncf-0Z-qaB" firstAttribute="top" secondItem="AsO-9M-ouh" secondAttribute="bottom" id="GRP-tn-mBf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AsO-9M-ouh" secondAttribute="trailing" constant="-20" id="w7K-JJ-0iV"/>
+                            <constraint firstItem="AsO-9M-ouh" firstAttribute="top" secondItem="zTE-Z2-zW5" secondAttribute="topMargin" id="xZ5-Hf-T37"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableview" destination="AsO-9M-ouh" id="Ix2-g8-NEp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cEg-FF-omW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1831" y="670"/>
         </scene>
     </scenes>
 </document>
