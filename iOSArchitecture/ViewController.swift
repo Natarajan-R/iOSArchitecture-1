@@ -13,6 +13,7 @@ class ViewController: UITableViewController, SegueHandlerType {
     enum SegueIdentifier: String {
         case MVC
         case MVP
+        case MVVMWithoutBinding
 
     }
 
@@ -33,19 +34,31 @@ class ViewController: UITableViewController, SegueHandlerType {
         switch segueIdentifierForSegue(segue) {
 
             case .MVP:
-                let todoList = [MVPTodo]();
-                let viewController: MVPTodoListViewController
-                = segue.destinationViewController as! MVPTodoListViewController;
-                let presenter: MVPTodoListPresentable = MVPTodoListPresenter(view: viewController, todoList: todoList)
-
-                viewController.inject(presenter)
+            routeToMVP(segue.destinationViewController as! MVPTodoListViewController)
+        case .MVVMWithoutBinding:
+            routeToMVVMWithoutBinding(segue.destinationViewController as! MVVMTodoListViewController)
 
             default:
                 return
 
         }
     }
+}
 
-
+private extension ViewController
+{
+    func routeToMVP(todoListViewController:MVPTodoListViewController) {
+        let todoList = [MVPTodo]();
+        let presenter: MVPTodoListPresentable = MVPTodoListPresenter(view: todoListViewController, todoList: todoList)
+        
+        todoListViewController.inject(presenter)
+    }
+    
+    func routeToMVVMWithoutBinding(todoListViewController:MVVMTodoListViewController) {
+        let todoList = [MVVMTodo]();
+        let viewModel: MVVMTodoListViewModel = MVVMTodoListViewModelImpl(view: todoListViewController, todoList: todoList)
+        
+        todoListViewController.inject(viewModel)
+    }
 }
 
