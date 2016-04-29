@@ -19,7 +19,7 @@ private extension Selector {
 class MVPTodoListViewController: UIViewController {
     @IBOutlet weak var tableview: UITableView!
 
-    private var presenter: MVPTodoListPresentable!
+    private var presenter: MVPTodoListPresenter!
 
     override func viewDidLoad() {
 
@@ -89,7 +89,7 @@ extension MVPTodoListViewController: UITableViewDataSource {
 }
 
 extension MVPTodoListViewController: Injectable {
-    typealias T = MVPTodoListPresentable
+    typealias T = MVPTodoListPresenter
 
     func inject(dependencies: T) {
 

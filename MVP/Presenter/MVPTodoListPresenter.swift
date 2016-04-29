@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol MVPTodoListPresentable {
+protocol MVPTodoListPresenter {
 
     init(view: MVPTodoListView, todoList: [MVPTodo])
 
@@ -20,7 +20,7 @@ protocol MVPTodoListPresentable {
     func todoItemTitleByRow(row: Int) -> String
 }
 
-class MVPTodoListPresenter: MVPTodoListPresentable {
+class MVPTodoListPresenterImpl: MVPTodoListPresenter {
     unowned let view: MVPTodoListView
     var todoList: [MVPTodo]
 
