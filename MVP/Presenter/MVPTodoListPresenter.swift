@@ -21,7 +21,7 @@ protocol MVPTodoListPresenter {
 }
 
 class MVPTodoListPresenterImpl: MVPTodoListPresenter {
-    unowned let view: MVPTodoListView
+    weak var view: MVPTodoListView?
     var todoList: [MVPTodo]
 
 
@@ -32,7 +32,7 @@ class MVPTodoListPresenterImpl: MVPTodoListPresenter {
 
     func showTodoList() {
 
-        self.view.showTodoList()
+        self.view?.showTodoList()
     }
 
     func addNewTodoByTimeStamp(timeStamp: NSDate) {
@@ -40,7 +40,7 @@ class MVPTodoListPresenterImpl: MVPTodoListPresenter {
         let todo = MVPTodo(timeStamp: timeStamp)
 
         self.todoList.append(todo)
-        self.view.showTodoList()
+        self.view?.showTodoList()
     }
 
     func countTodoList() -> Int {
