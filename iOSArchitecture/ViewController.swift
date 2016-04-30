@@ -48,7 +48,7 @@ class ViewController: UITableViewController, SegueHandlerType {
 private extension ViewController {
     func routeToMVP(todoListViewController: MVPTodoListViewController) {
 
-        let todoList = [MVPTodo]();
+        let todoList = MVPTodoList();
         let presenter: MVPTodoListPresenter = MVPTodoListPresenterImpl(view: todoListViewController, todoList: todoList)
 
         todoListViewController.inject(presenter)

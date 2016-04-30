@@ -61,30 +61,8 @@ class MVPTodoListViewController: UIViewController {
 extension MVPTodoListViewController: MVPTodoListView {
     func showTodoList() {
 
-        self.tableview.dataSource = self
+        self.tableview.dataSource = self.presenter as? UITableViewDataSource
         self.tableview.reloadData()
-    }
-}
-
-extension MVPTodoListViewController: UITableViewDataSource {
-
-    enum CellIdentifier: String {
-        case TodoCell
-    }
-
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        return self.presenter.countTodoList()
-    }
-
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-
-        let cellIdentifer = CellIdentifier.TodoCell
-
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifer.rawValue)!
-        cell.textLabel?.text = self.presenter.todoItemTitleByRow(indexPath.row)
-
-        return cell
     }
 }
 
