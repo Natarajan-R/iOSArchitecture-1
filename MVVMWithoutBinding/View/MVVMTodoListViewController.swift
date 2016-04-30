@@ -15,7 +15,7 @@ private extension Selector {
 class MVVMTodoListViewController: UIViewController {
     @IBOutlet weak var tableview: UITableView!
     
-    private var viewModel: MVVMTodoListViewModel?
+    private var viewModel: MVVMTodoListViewModel!
     
     override func viewDidLoad() {
         
@@ -30,8 +30,7 @@ class MVVMTodoListViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         
         super.viewDidAppear(animated)
-        
-        self.viewModel!.showTodoList()
+        self.showTodoList()
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,6 +42,7 @@ class MVVMTodoListViewController: UIViewController {
     func tapOnAddNewTodoBtn(button: UIButton) {
         
         self.viewModel!.addNewTodoByTimeStamp(NSDate())
+        self.showTodoList()
     }
     
     func configureViews() {
@@ -57,8 +57,29 @@ class MVVMTodoListViewController: UIViewController {
 extension MVVMTodoListViewController: MVVMTodoListView {
     func showTodoList() {
         
-        self.tableview.dataSource = self.viewModel as? UITableViewDataSource
+        self.tableview.dataSource = self
         self.tableview.reloadData()
+    }
+}
+
+extension MVVMTodoListViewController: UITableViewDataSource {
+
+    enum CellIdentifier: String {
+        case TodoCell
+    }
+
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.viewModel.countOfTodoList()
+    }
+
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+
+        let cellIdentifer = CellIdentifier.TodoCell
+
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifer.rawValue)!
+        cell.textLabel?.text = self.viewModel.todoItemTitleByRow(indexPath.row)
+
+        return cell
     }
 }
 

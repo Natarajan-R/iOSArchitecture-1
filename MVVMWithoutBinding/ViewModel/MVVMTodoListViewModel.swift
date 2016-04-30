@@ -10,50 +10,53 @@ import UIKit
 
 protocol MVVMTodoListViewModel {
 
-    init(view: MVVMTodoListView, todoList: MVVMTodoList)
+    init(todoList: MVVMTodoList)
 
-    func showTodoList()
+    func countOfTodoList() -> Int
 
     func addNewTodoByTimeStamp(timeStamp: NSDate)
+
+    func todoItemTitleByRow(row: Int) -> String
 }
 
 class MVVMTodoListViewModelImpl: NSObject, MVVMTodoListViewModel {
-    unowned let view: MVVMTodoListView
     var todoList: MVVMTodoList
 
-    required init(view: MVVMTodoListView, todoList: MVVMTodoList) {
-        self.view = view
+    required init(todoList: MVVMTodoList) {
         self.todoList = todoList
     }
 
-    func showTodoList() {
-
-        self.view.showTodoList()
+    func countOfTodoList() -> Int {
+        return self.todoList.count()
     }
 
     func addNewTodoByTimeStamp(timeStamp: NSDate) {
         self.todoList.addNewTodoByTimeStamp(timeStamp)
-        self.view.showTodoList()
+    }
+
+    func todoItemTitleByRow(row: Int) -> String {
+
+        return self.todoList.todoAtIndex(row).timeStamp.description
     }
 }
 
-extension MVVMTodoListViewModelImpl:UITableViewDataSource
-{
-    enum CellIdentifier: String {
-        case TodoCell
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.todoList.count()
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cellIdentifer = CellIdentifier.TodoCell
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifer.rawValue)!
-        cell.textLabel?.text = self.todoList.todoAtIndex(indexPath.row).timeStamp.description
-        
-        return cell
-    }
-}
+//extension MVVMTodoListViewModelImpl:UITableViewDataSource
+//{
+//    enum CellIdentifier: String {
+//        case TodoCell
+//    }
+//
+//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return self.todoList.count()
+//    }
+//
+//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//
+//        let cellIdentifer = CellIdentifier.TodoCell
+//
+//        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifer.rawValue)!
+//        cell.textLabel?.text = self.todoList.todoAtIndex(indexPath.row).timeStamp.description
+//
+//        return cell
+//    }
+//}

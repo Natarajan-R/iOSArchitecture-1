@@ -48,16 +48,15 @@ class ViewController: UITableViewController, SegueHandlerType {
 private extension ViewController {
     func routeToMVP(todoListViewController: MVPTodoListViewController) {
 
-        let todoList = MVPTodoList();
+        let todoList = MVPTodoList()
         let presenter: MVPTodoListPresenter = MVPTodoListPresenterImpl(view: todoListViewController, todoList: todoList)
 
         todoListViewController.inject(presenter)
     }
 
     func routeToMVVMWithoutBinding(todoListViewController:MVVMTodoListViewController) {
-        let todoList = MVVMTodoList();
-        let viewModel: MVVMTodoListViewModel = MVVMTodoListViewModelImpl(view: todoListViewController, todoList: todoList)
-
+        let todoList = MVVMTodoList()
+        let viewModel: MVVMTodoListViewModel = MVVMTodoListViewModelImpl(todoList: todoList)
         todoListViewController.inject(viewModel)
     }
 }
