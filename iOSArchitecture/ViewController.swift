@@ -49,6 +49,8 @@ private extension ViewController {
     func routeToMVP(todoListViewController: MVPTodoListViewController) {
 
         let todoList = MVPTodoList()
+        todoList.addNewTodoByTimeStamp(NSDate())
+
         let presenter: MVPTodoListPresenter = MVPTodoListPresenterImpl(view: todoListViewController, todoList: todoList)
 
         todoListViewController.inject(presenter)
@@ -56,6 +58,8 @@ private extension ViewController {
 
     func routeToMVVMWithoutBinding(todoListViewController:MVVMTodoListViewController) {
         let todoList = MVVMTodoList()
+        todoList.addNewTodoByTimeStamp(NSDate())
+        
         let viewModel: MVVMTodoListViewModel = MVVMTodoListViewModelImpl(todoList: todoList)
         todoListViewController.inject(viewModel)
     }
