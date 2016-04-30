@@ -54,11 +54,9 @@ private extension ViewController {
         todoListViewController.inject(presenter)
     }
 
-    func routeToMVVMWithoutBinding(todoListViewController: MVVMTodoListViewController) {
-
-        let todoList = [MVVMTodo]();
-        let viewModel: MVVMTodoListViewModel
-        = MVVMTodoListViewModelImpl(view: todoListViewController, todoList: todoList)
+    func routeToMVVMWithoutBinding(todoListViewController:MVVMTodoListViewController) {
+        let todoList = MVVMTodoList();
+        let viewModel: MVVMTodoListViewModel = MVVMTodoListViewModelImpl(view: todoListViewController, todoList: todoList)
 
         todoListViewController.inject(viewModel)
     }
