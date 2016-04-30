@@ -34,9 +34,9 @@ class ViewController: UITableViewController, SegueHandlerType {
         switch segueIdentifierForSegue(segue) {
 
             case .MVP:
-            routeToMVP(segue.destinationViewController as! MVPTodoListViewController)
-        case .MVVMWithoutBinding:
-            routeToMVVMWithoutBinding(segue.destinationViewController as! MVVMTodoListViewController)
+                routeToMVP(segue.destinationViewController as! MVPTodoListViewController)
+            case .MVVMWithoutBinding:
+                routeToMVVMWithoutBinding(segue.destinationViewController as! MVVMTodoListViewController)
 
             default:
                 return
@@ -45,19 +45,21 @@ class ViewController: UITableViewController, SegueHandlerType {
     }
 }
 
-private extension ViewController
-{
-    func routeToMVP(todoListViewController:MVPTodoListViewController) {
-        let todoList = [MVPTodo]();
-        let presenter: MVPTodoListPresentable = MVPTodoListPresenter(view: todoListViewController, todoList: todoList)
-        
+private extension ViewController {
+    func routeToMVP(todoListViewController: MVPTodoListViewController) {
+
+        let todoList = MVPTodoList();
+        let presenter: MVPTodoListPresenter = MVPTodoListPresenterImpl(view: todoListViewController, todoList: todoList)
+
         todoListViewController.inject(presenter)
     }
-    
-    func routeToMVVMWithoutBinding(todoListViewController:MVVMTodoListViewController) {
+
+    func routeToMVVMWithoutBinding(todoListViewController: MVVMTodoListViewController) {
+
         let todoList = [MVVMTodo]();
-        let viewModel: MVVMTodoListViewModel = MVVMTodoListViewModelImpl(view: todoListViewController, todoList: todoList)
-        
+        let viewModel: MVVMTodoListViewModel
+        = MVVMTodoListViewModelImpl(view: todoListViewController, todoList: todoList)
+
         todoListViewController.inject(viewModel)
     }
 }
