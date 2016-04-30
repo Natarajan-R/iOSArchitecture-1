@@ -15,3 +15,22 @@ struct MVVMTodo {
         self.timeStamp = timeStamp
     }
 }
+
+class MVVMTodoList {
+    private var list: [MVVMTodo] = [MVVMTodo]()
+
+    func addNewTodoByTimeStamp(timeStamp: NSDate) {
+
+        let newTodo = MVVMTodo(timeStamp: timeStamp)
+        list.append(newTodo)
+    }
+
+    func count() -> Int {
+        return list.count
+    }
+
+    func todoAtIndex(index:Int) -> MVVMTodo
+    {
+        return list[index]
+    }
+}
