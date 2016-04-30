@@ -16,7 +16,9 @@ protocol MVVMTodoListViewModel {
 
     func addNewTodoByTimeStamp(timeStamp: NSDate)
 
-    func todoItemTitleByRow(row: Int) -> String
+//    func todoItemTitleByRow(row: Int) -> String
+
+    func configureTableCell(tableViewCell: UITableViewCell, indexPath:NSIndexPath)
 }
 
 class MVVMTodoListViewModelImpl: NSObject, MVVMTodoListViewModel {
@@ -34,9 +36,14 @@ class MVVMTodoListViewModelImpl: NSObject, MVVMTodoListViewModel {
         self.todoList.addNewTodoByTimeStamp(timeStamp)
     }
 
-    func todoItemTitleByRow(row: Int) -> String {
+//    func todoItemTitleByRow(row: Int) -> String {
+//
+//        return self.todoList.todoAtIndex(row).timeStamp.description
+//    }
 
-        return self.todoList.todoAtIndex(row).timeStamp.description
+    func configureTableCell(tableViewCell: UITableViewCell, indexPath:NSIndexPath)
+    {
+        tableViewCell.textLabel?.text = self.todoList.todoAtIndex(indexPath.row).timeStamp.description
     }
 }
 

@@ -77,7 +77,8 @@ extension MVVMTodoListViewController: UITableViewDataSource {
         let cellIdentifer = CellIdentifier.TodoCell
 
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifer.rawValue)!
-        cell.textLabel?.text = self.viewModel.todoItemTitleByRow(indexPath.row)
+//        cell.textLabel?.text = self.viewModel.todoItemTitleByRow(indexPath.row)
+        self.viewModel.configureTableCell(cell, indexPath: indexPath)
 
         return cell
     }
